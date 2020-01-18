@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour{
     [SerializeField] List<Waypoint> path;
 
     void Start(){
-        StartCoroutine(FollowPath());
+        // StartCoroutine(FollowPath());
     }
 
     IEnumerator FollowPath(){
