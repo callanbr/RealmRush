@@ -9,6 +9,7 @@ public class PathFinder : MonoBehaviour{
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
     Queue<Waypoint> queue = new Queue<Waypoint>();
     bool isRunning = true;
+    Waypoint searchCenter;
 
     Vector2Int[] directions = {
         Vector2Int.up,
@@ -27,15 +28,14 @@ public class PathFinder : MonoBehaviour{
     private void PathFind(){
         queue.Enqueue(startWaypoint);
         while(queue.Count > 0 && isRunning){
-            var searchCenter = queue.Dequeue();
+            searchCenter = queue.Dequeue();
             searchCenter.isExplored = true;
-            print("Searching from: " + searchCenter); // todo remove log
-            HaltIfEndFound(searchCenter);
-            ExploreNeighbours(searchCenter);
+            HaltIfEndFound();
+            ExploreNeighbours();
         }
     }
 
-    private void HaltIfEndFound(Waypoint searchCenter){
+    private void HaltIfEndFound(){
         if (searchCenter == endWaypoint)
         {
             print("Start and end on same block: " + searchCenter); // todo remove log
@@ -43,10 +43,10 @@ public class PathFinder : MonoBehaviour{
         }
     }
 
-    private void ExploreNeighbours(Waypoint from){
+    private void ExploreNeighbours(){
         if(!isRunning){return;}
         foreach (Vector2Int direction in directions){
-            Vector2Int neighbourCoordinates = from.GetGridPos() + direction;
+            Vector2Int neighbourCoordinates = searchCenter.GetGridPos() + direction;
             try
             {
                 QueueNewNeighbours(neighbourCoordinates);
@@ -58,11 +58,11 @@ public class PathFinder : MonoBehaviour{
     private void QueueNewNeighbours(Vector2Int neighbourCoordinates)
     {
         Waypoint neighbour = grid[neighbourCoordinates];
-        if(neighbour.isExplored){ //do nothing
+        if(neighbour.isExplored || queue.Contains(neighbour)){ //do nothing
         } else {
-            neighbour.SetTopColor(Color.blue); // todo move later
+            // neighbour.SetTopColor(Color.blue); //Changes exploted color
             queue.Enqueue(neighbour);
-            print("Queueing: " + neighbour);
+            neighbour.exploredFrom = searchCenter;
         }
     }
 
