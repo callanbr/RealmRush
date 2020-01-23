@@ -10,6 +10,7 @@ public class PathFinder : MonoBehaviour{
     Queue<Waypoint> queue = new Queue<Waypoint>();
     bool isRunning = true;
     Waypoint searchCenter;
+    public List<Waypoint> path = new List<Waypoint>();
 
     Vector2Int[] directions = {
         Vector2Int.up,
@@ -18,14 +19,27 @@ public class PathFinder : MonoBehaviour{
         Vector2Int.left
     };
 
-    void Start(){
+    public List<Waypoint> GetPath(){
         LoadBlocks();
         ColorStartAndEnd();
-        PathFind();
-        // ExploreNeighbours();
+        BreadthFirstSearch();
+        CreatePath();
+        return path;
     }
 
-    private void PathFind(){
+    private void CreatePath()
+    {
+        path.Add(endWaypoint);
+        Waypoint previous = endWaypoint.exploredFrom;
+        while(previous != startWaypoint){
+            path.Add(previous);
+            previous = previous.exploredFrom;
+        }
+        path.Add(startWaypoint);
+        path.Reverse();
+    }
+
+    private void BreadthFirstSearch(){
         queue.Enqueue(startWaypoint);
         while(queue.Count > 0 && isRunning){
             searchCenter = queue.Dequeue();
@@ -47,11 +61,9 @@ public class PathFinder : MonoBehaviour{
         if(!isRunning){return;}
         foreach (Vector2Int direction in directions){
             Vector2Int neighbourCoordinates = searchCenter.GetGridPos() + direction;
-            try
-            {
+            if(grid.ContainsKey(neighbourCoordinates)){
                 QueueNewNeighbours(neighbourCoordinates);
             }
-            catch {} //Do nothing for now.
         }
     }
 
