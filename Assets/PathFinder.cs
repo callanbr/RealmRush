@@ -33,7 +33,7 @@ public class PathFinder : MonoBehaviour{
             HaltIfEndFound();
             ExploreNeighbours();
         }
-    }
+    } 
 
     private void HaltIfEndFound(){
         if (searchCenter == endWaypoint)
