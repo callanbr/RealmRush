@@ -2990,6 +2990,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6472869447677290674, guid: c259998f508b84a0fac8e2f2e736043e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472869447677290674, guid: c259998f508b84a0fac8e2f2e736043e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472869447677290674, guid: c259998f508b84a0fac8e2f2e736043e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472869447677290674, guid: c259998f508b84a0fac8e2f2e736043e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.26
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c259998f508b84a0fac8e2f2e736043e, type: 3}
 --- !u!1001 &1045365440
@@ -4236,6 +4256,7 @@ Transform:
   - {fileID: 919333828}
   - {fileID: 1076372432}
   - {fileID: 433771743}
+  - {fileID: 278503060}
   - {fileID: 428675292}
   - {fileID: 1088747584}
   - {fileID: 1395969153}
@@ -4248,7 +4269,6 @@ Transform:
   - {fileID: 1478065388}
   - {fileID: 1869853626}
   - {fileID: 1767484481}
-  - {fileID: 278503060}
   - {fileID: 1796264108}
   m_Father: {fileID: 0}
   m_RootOrder: 4
