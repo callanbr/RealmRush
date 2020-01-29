@@ -14,11 +14,9 @@ public class CubeEditor : MonoBehaviour{
     }
 
     void Start(){
-
     }
 
-    void Update()
-    {
+    void Update(){
         SnapToGrid();
         UpdateLabel();
     }
