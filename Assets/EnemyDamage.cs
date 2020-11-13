@@ -15,7 +15,6 @@ public class EnemyDamage : MonoBehaviour {
 
     void ProcessHit(){
         hitpoints--;
-        print("Hitpoints: " + hitpoints);
     }
     private void KillEnemy() {
         Destroy(gameObject);

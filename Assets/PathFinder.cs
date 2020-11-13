@@ -20,11 +20,17 @@ public class PathFinder : MonoBehaviour{
     };
 
     public List<Waypoint> GetPath(){
+        if(path.Count == 0){
+            CalculatePath();
+        }
+        return path;
+    }
+
+    private void CalculatePath() {
         LoadBlocks();
         ColorStartAndEnd();
         BreadthFirstSearch();
         CreatePath();
-        return path;
     }
 
     private void CreatePath()
@@ -47,7 +53,7 @@ public class PathFinder : MonoBehaviour{
             HaltIfEndFound();
             ExploreNeighbours();
         }
-    } 
+    }
 
     private void HaltIfEndFound(){
         if (searchCenter == endWaypoint)
@@ -95,7 +101,5 @@ public class PathFinder : MonoBehaviour{
         }
     }
 
-    void Update(){
-        
-    }
+    void Update(){}
 }
