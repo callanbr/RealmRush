@@ -2,27 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDamage : MonoBehaviour {
-    [SerializeField] int hitpoints = 10;
-    [SerializeField] ParticleSystem hitParticlePrefab;
-    [SerializeField] ParticleSystem killParticlePrefab;
+public class EnemyDamage : MonoBehaviour
+{
+  [SerializeField] int hitpoints = 10;
+  [SerializeField] ParticleSystem hitParticlePrefab;
+  [SerializeField] ParticleSystem killParticlePrefab;
 
-    private void OnParticleCollision(GameObject other){
-        ProcessHit();
-        if (hitpoints <= 0)
-        {
-            KillEnemy();
-        }
-    }
+  private void OnParticleCollision(GameObject other)
+  {
 
-    void ProcessHit(){
-        hitpoints--;
-        hitParticlePrefab.Play();
+    ProcessHit();
+    if (hitpoints <= 0)
+    {
+      KillEnemy();
     }
-    private void KillEnemy() {
-        var vfx = Instantiate(killParticlePrefab, transform.position, Quaternion.identity);
-        vfx.Play();
-        Destroy(gameObject);
-    }
+  }
+
+  void ProcessHit()
+  {
+    hitpoints--;
+    hitParticlePrefab.Play();
+  }
+  private void KillEnemy()
+  {
+    var vfx = Instantiate(killParticlePrefab, transform.position, Quaternion.identity);
+    vfx.Play();
+    Destroy(gameObject);
+  }
 
 }

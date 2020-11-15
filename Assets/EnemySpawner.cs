@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Range(0.1f, 60f)]
-    [SerializeField] float secondsBetweenSpans = 5f;
-    [SerializeField] EnemyMovement enemyPrefab;
+  [Range(0.1f, 60f)]
+  [SerializeField] float secondsBetweenSpans = 5f;
+  [SerializeField] EnemyMovement enemyPrefab;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(RepeatedlySpawnEnemies());
-    }
+  // Start is called before the first frame update
+  void Start()
+  {
+    StartCoroutine(RepeatedlySpawnEnemies());
+  }
 
-    IEnumerator RepeatedlySpawnEnemies()
+  IEnumerator RepeatedlySpawnEnemies()
+  {
+    while (true) //forever
     {
-        while (true) //forever
-        {
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(secondsBetweenSpans);
-        }
+      Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+      yield return new WaitForSeconds(secondsBetweenSpans);
     }
+  }
 }
