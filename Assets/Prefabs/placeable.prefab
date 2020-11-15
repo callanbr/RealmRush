@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 1110254289652362179}
   - component: {fileID: 2124686102214629201}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: placeable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +123,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9213681026353535622}
-  - {fileID: 8501160474722223316}
+  - {fileID: 8592482683504299665}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -261,7 +261,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &8499926635149783338
+--- !u!1001 &8588750613706914671
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -270,7 +270,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1457945536329988, guid: f27a4597efbf3694b95687e7aeef7fcc, type: 3}
       propertyPath: m_Name
-      value: Block_Friendly
+      value: Block_Friendly (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4501762900964862, guid: f27a4597efbf3694b95687e7aeef7fcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -330,9 +330,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f27a4597efbf3694b95687e7aeef7fcc, type: 3}
---- !u!4 &8501160474722223316 stripped
+--- !u!4 &8592482683504299665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4501762900964862, guid: f27a4597efbf3694b95687e7aeef7fcc,
     type: 3}
-  m_PrefabInstance: {fileID: 8499926635149783338}
+  m_PrefabInstance: {fileID: 8588750613706914671}
   m_PrefabAsset: {fileID: 0}
