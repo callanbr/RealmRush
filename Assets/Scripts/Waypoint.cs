@@ -5,8 +5,6 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour
 {
 
-  [SerializeField] Tower towerPrefab;
-
   public bool isExplored = false;
   public Waypoint exploredFrom;
   public bool isPlaceable = true;
@@ -32,9 +30,7 @@ public class Waypoint : MonoBehaviour
     {
       if (isPlaceable)
       {
-        Instantiate(towerPrefab, transform.position, Quaternion.identity);
-        isPlaceable = false;
-        print(gameObject.name);
+        FindObjectOfType<TowerFactory>().AddTower(this);
       }
       else
       {
