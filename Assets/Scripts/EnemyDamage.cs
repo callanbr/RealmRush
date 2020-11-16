@@ -35,11 +35,13 @@ public class EnemyDamage : MonoBehaviour
   }
   private void KillEnemy()
   {
-    // myAudioSource.PlayOneShot(enemyDeathSFX);
     var vfx = Instantiate(killParticlePrefab, transform.position, Quaternion.identity);
     vfx.Play();
     float destroyDelay = vfx.main.duration;
     Destroy(vfx.gameObject, destroyDelay);
+
+    AudioSource.PlayClipAtPoint(enemyDeathSFX, Camera.main.transform.position);
+
     Destroy(gameObject);
   }
 
